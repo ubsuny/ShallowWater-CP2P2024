@@ -1,5 +1,11 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-  }
+  "name": "Shallow Water Project",
+  "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+  },
+  "settings": {},
+  "extensions": [],
+  "forwardPorts": [],
+  "postCreateCommand": "echo 'PETSc is ready!'"
 }
