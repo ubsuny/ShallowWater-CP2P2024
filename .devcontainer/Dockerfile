@@ -1,5 +1,5 @@
 # Use an official Ubuntu base image
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 # Avoid prompts from apt during build
 ARG DEBIAN_FRONTEND=noninteractive
