@@ -26,12 +26,14 @@ To use PETSc, you first need to install it on your system. PETSc can be installe
 
 ### C Data Types
 
-In C, PETSc introduces several data types that encapsulate underlying complex data structures. Here are some of the core data types:
+In C, PETSc introduces several data types that encapsulate underlying complex data structures. 
+For more detailed information on these data types, please look at the [PETSc Data Types Documentation](https://petsc.org/release/docs/manualpages/Sys/PETScDataTypes.html).
+Here are some of the core data types:
 
 - **Vec**: Represents vectors (arrays) in PETSc. Used for storing and manipulating vectors in parallel.
 - **Mat**: Represents matrices in PETSc. Supports various matrix operations and storage formats.
 - **KSP**: The Krylov Subspace solver context. Used for solving linear systems.
-- **SNES**: Represents the nonlinear solver context in PETSc, used for solving nonlinear systems.
+- **SNES**: Represents the nonlinear solver context in PETSc, which is used for solving nonlinear systems.
 
 ### Python Data Types
 
