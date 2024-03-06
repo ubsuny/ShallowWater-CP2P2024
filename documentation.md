@@ -1,5 +1,14 @@
-# Shallow Water Equation project.
-I will complete this part step by step as my research work progresses.
+# Shallow Water Equation Simulation with PETSc
+
+This project leverages the power of PETSc to simulate the dynamics of shallow water bodies. Utilizing PETSc's robust parallel computing capabilities, we aim to provide accurate and efficient solutions to the SWE, fundamental in understanding fluid flows in environments where the horizontal length scale significantly exceeds the vertical depth.
+
+## Features
+- **Efficient Parallel Computing:** Harness PETSc for scalable simulations.
+- **Random Initial Conditions:** Employ PETSc's random number generation for diverse scenarios.
+- **Flexible:** Designed for adaptability to various shallow water scenarios.
+
+Explore the intricacies of fluid dynamics with our PETSc-based simulation tool.
+
 
 # PETSc Data Types Documentation
 
