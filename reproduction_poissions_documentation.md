@@ -16,7 +16,7 @@ The Poisson equation is a fundamental partial differential equation that appears
 
 To compile the Poisson solver, run the following command in the terminal:
 
-```bash
+```c
 make poisson.c
 ```
 
@@ -24,8 +24,8 @@ make poisson.c
 
 To run the Poisson solver with a custom grid size and visualize the grid layout, use the following command in your terminal:
 
-```bash
-./poisson -da_grid_x 4 -da_grid_y 3 -dm_view draw -draw_pause 10
+```c
+-da_grid_x 9 -da_grid_y 9 -dm_view draw -draw_pause 10
 ```
 
 ## Code Explanation
@@ -65,9 +65,19 @@ The PETSc framework provides extensive customization for solving linear systems,
   - `-log_view`: Outputs a detailed performance log upon completion.
 
 - **Example: Running with a Custom Solver and Preconditioner**
-  ```bash
-  ./poisson -da_grid_x 50 -da_grid_y 50 -ksp_type gmres -pc_type ilu -ksp_monitor
+  ```c
+  ./poisson -da_grid_x 9 -da_grid_y 9 -ksp_type gmres -pc_type ilu -ksp_monitor
   ```
+
+## Output of Grid Size
+After running the Poisson solver, the program outputs the following information:
+```c
+on 9 x 9 grid:  error |u-uexact|_inf = 0.000763959
+```
+<p align="center">
+  <img src="https://github.com/user/repo/blob/main/path/to/first_image.png?raw=true" alt="First Image" width="45%"/>
+  <img src="https://github.com/user/repo/blob/main/path/to/second_image.png?raw=true" alt="Second Image" width="45%"/>
+</p>
 
 ## Bibliography
 
