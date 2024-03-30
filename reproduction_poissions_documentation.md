@@ -75,8 +75,8 @@ After running the Poisson solver, the program outputs the following information:
 on 9 x 9 grid:  error |u-uexact|_inf = 0.000763959
 ```
 <p align="center">
-  <img src="https://github.com/user/repo/blob/main/path/to/first_image.png?raw=true" alt="First Image" width="45%"/>
-  <img src="https://github.com/user/repo/blob/main/path/to/second_image.png?raw=true" alt="Second Image" width="45%"/>
+  <img src="https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/mesh_poisson_no_cordinates.jpg" alt="First Image" width="45%"/>
+  <img src="https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/mesh_poisson_with_cordinates.jpg" alt="Second Image" width="45%"/>
 </p>
 
 ## Bibliography
