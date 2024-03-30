@@ -47,8 +47,27 @@ To run the solver and further explore its capabilities, see the [Running the Sol
 For more detailed information on PETSc's linear solvers and other features are in [PETSc KSP Documentation](https://petsc.org/main/manualpages/KSP/KSP/).
 
 
+## Additional Configuration Options
 
+The PETSc framework provides extensive customization for solving linear systems, allowing users to tailor the solver to their specific needs. Below are some of the additional command-line options you can use when running the Poisson solver:
 
+- **Solver and Preconditioner Options:**
+  - `-ksp_type <type>`: Specifies the type of Krylov subspace method to use (e.g., `cg`, `gmres`).
+  - `-pc_type <type>`: Sets the type of preconditioner (e.g., `none`, `jacobi`, `ilu`).
+
+- **Grid Customization:**
+  - `-da_grid_x <Nx>`: Sets the number of grid points in the x-direction.
+  - `-da_grid_y <Ny>`: Sets the number of grid points in the y-direction.
+
+- **Visualization and Debugging:**
+  - `-ksp_view`: Displays detailed information about the Krylov solver configuration.
+  - `-ksp_monitor`: Monitors the convergence of the solver at each iteration.
+  - `-log_view`: Outputs a detailed performance log upon completion.
+
+- **Example: Running with a Custom Solver and Preconditioner**
+  ```bash
+  ./poisson -da_grid_x 50 -da_grid_y 50 -ksp_type gmres -pc_type ilu -ksp_monitor
+  ```
 
 ## Bibliography
 
