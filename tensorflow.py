@@ -6,26 +6,6 @@ from tensorflow.keras.optimizers import Adam
 from pathlib import Path
 from google.colab import drive
 
-def load_data_large():
-    """ Load large training and validation dataset
-
-        Returns a tuple of length 4 with the following objects:
-        X_train: An N_train-x-M ndarray containing the training data (N_train examples, M features each)
-        y_train: An N_train-x-1 ndarray containing the labels
-        X_val: An N_val-x-M ndarray containing the training data (N_val examples, M features each)
-        y_val: An N_val-x-1 ndarray containing the labels
-    """
-    script_dir = Path(__file__).resolve().parent
-    train_all = np.loadtxt(script_dir / 'data/largeTrain.csv', dtype=int, delimiter=',')
-    valid_all = np.loadtxt(script_dir / 'data/largeValidation.csv', dtype=int, delimiter=',')
-
-    X_train = train_all[:, 1:]
-    y_train = train_all[:, 0]
-    X_val = valid_all[:, 1:]
-    y_val = valid_all[:, 0]
-
-    return (X_train, y_train, X_val, y_val)
-
 def train_and_evaluate_model(hidden_units, X_train, y_train, X_val, y_val):
     model = Sequential([
         Dense(hidden_units, input_shape=(X_train.shape[1],), activation='relu'),
@@ -63,6 +43,44 @@ def load_data_large():
 
     return (X_train, y_train, X_val, y_val)
 
+def visualize_data(X_train, y_train):
+    """ Visualize data with histograms and scatter plots.
+    
+    Parameters:
+    X_train (numpy.ndarray): Training data features.
+    y_train (numpy.ndarray): Training data labels.
+    """
+    plt.figure(figsize=(12, 6))
+
+    # Visualizing the distribution of labels
+    plt.subplot(1, 2, 1)
+    plt.hist(y_train, bins=np.unique(y_train).size, edgecolor='black')
+    plt.title('Histogram of Class Distribution')
+    plt.xlabel('Class Label')
+    plt.ylabel('Frequency')
+
+    # Assuming we're plotting the first two features
+    # Check if we have at least two features to plot
+    if X_train.shape[1] >= 2:
+        plt.subplot(1, 2, 2)
+        scatter = plt.scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap='viridis', alpha=0.5)
+        plt.colorbar(scatter, label='Class Label')
+        plt.title('Scatter Plot of First Two Features')
+        plt.xlabel('Feature 1')
+        plt.ylabel('Feature 2')
+    else:
+        print("Not enough features for a scatter plot.")
+
+    plt.tight_layout()
+    plt.show()
+
+if __name__ == "__main__":
+    # Assuming 'load_data_large' and the mounting of Google Drive have been defined and called elsewhere
+    X_train, y_train, X_val, y_val = load_data_large()
+
+    # Visualize the data
+    visualize_data(X_train, y_train)
+    
 if __name__ == "__main__":
     # Mount Google Drive
     drive.mount('/content/drive')
