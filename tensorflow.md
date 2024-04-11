@@ -4,7 +4,7 @@ This file demonstrates the process of loading a large dataset, training a neural
 
 ## Features
 
-- **Data Loading**: There were three datasets namely small, medium, and large datasets. These dataset images are to detect the handwritten numbers from 0 to 9. And the dataset is in grayscale.  I used the largest dataset. Load large training and validation datasets from Google Drive.
+- **Data Loading**: There were three datasets namely small, medium, and large datasets which are available in the folder [tf_dataset](https://github.com/ubsuny/ShallowWater-CP2P2024/tree/main/src/tf_dataset). These dataset images are to detect the handwritten numbers from 0 to 9. And the dataset is in grayscale.  I used the largest dataset. Load large training and validation datasets from Google Drive.
 - **Model Training**: Train a neural network with varying sizes of hidden layers.
 - **Performance Visualization**: Visualize training and validation loss across epochs to evaluate model performance.
 - **Data Visualization**: Generate histograms and scatter plots to explore the dataset.
