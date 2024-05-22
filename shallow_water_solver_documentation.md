@@ -80,9 +80,9 @@ $hu(x, 0) = (1.0 + 0.1 \sin(\pi x))(0.1 \cos(\pi x))$
 
 After applying these in PETSc, we plotted SWE by collecting the height and momentum from the output file, then plotted the SWE using Python’s Matplotlib libraries. The figures below show the SWE for 100, 200, and 300 grid sizes respectively.
 
-![SWE for 100 grid size](figures/swe_100.png)
-![SWE for 200 grid size](figures/swe_200.png)
-![SWE for 300 grid size](figures/swe_300.png)
+![SWE for 100 grid size](https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/swe_data/solution_100.png)
+![SWE for 200 grid size](https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/swe_data/solution_200.png)
+![SWE for 300 grid size](https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/swe_data/solution_300.png)
 
 ## Implementation Details
 
@@ -112,9 +112,9 @@ Computed the error norms by comparing the numerical solution to the exact soluti
 
 To assess the accuracy of the numerical solution, the error norms for h and hu are calculated:
 
-∥eₕ∥ = √( Σ (hᵢ - hₑₓₐcₜᵢ)² ∆x ) 
+$$\|e_h\| = \sqrt{ \sum_{i=1}^{N} (h_i - h_{\text{exact} i})^2 \Delta x }$$ 
 
-∥eₕᵤ∥ = √( Σ (huᵢ - hueₓₐcₜᵢ)² ∆x )
+$$\|e_{hu}\| = \sqrt{ \sum_{i=1}^{N} (hu_i - hu_{\text{exact} i})^2 \Delta x }$$
 
 ### Results and Analysis
 
@@ -187,9 +187,16 @@ The table and figure below show the serial and parallel execution times for the 
 | 8              | 1000      | 0.05119            |
 | 16             | 1000      | 0.02119            |
 
+The following two plots for the serial and parallel execution time:
+![Serila Execution](https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/swe_data/serial_execution.png)
+![Parallel Execution](https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/swe_data/parallel_execution.png)
 #### Discussion
 
-The parallel execution times do not exhibit significant speedup, particularly for smaller grid sizes. Several factors can contribute to this behavior:
+The parallel execution times do not exhibit significant speedup (plots below), particularly for smaller grid sizes. 
+![Sppedup](https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/swe_data/speedup.png)
+![Efficiency](https://raw.githubusercontent.com/ubsuny/ShallowWater-CP2P2024/main/src/swe_data/efficiency.png)
+
+Several factors can contribute to this behavior:
 
 - **Communication Overhead**: In parallel computing, especially with a small grid size or a high number of processors, the communication overhead can dominate the computational workload. This is because the time spent on inter-processor communication can outweigh the time saved by distributing the computational load.
 - **Load Balancing**: Effective parallelization requires evenly distributing the workload among processors. For small grid sizes, the workload might not be sufficiently large to be divided effectively, leading to some processors being underutilized.
